@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>決済方法検索</title>
+</head>
+<body>
+    <h1>決済方法検索</h1>
+    <input type="text" id="searchBox" placeholder="店舗名を入力">
+    <button id="searchButton">検索</button>
+    <p id="result"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const stores = {
+                "ファミリーマート": "バーコード決済、交通系電子マネー、クレジットカード、商品券、QUOカード、電子食事カード、JCBプレモカード",
+                "ローソン": "バーコード決済、電子マネー、クレジットカード、QUOカード、JCBプレモカード",
+                "セブンイレブン": "バーコード決済、交通系電子マネー、クレジットカード、商品券、QUOカード、プリペイドカード",
+                "ライフ": "バーコード決済、クレジットカード",
+                "肉のハナマサ": "クレジットカード、交通系IC電子マネー"
+            };
+
+            document.getElementById("searchButton").addEventListener("click", function() {
+                const input = document.getElementById("searchBox").value.trim();
+                const result = stores[input] || "店舗が見つかりません";
+                document.getElementById("result").innerText = result;
+            });
+        });
+    </script>
+</body>
+</html>
